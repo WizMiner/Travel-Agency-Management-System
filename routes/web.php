@@ -13,3 +13,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('traveling/about/{id}', [App\Http\Controllers\Traveling\TravelingController::czlass, 'about'])->name('traveling.about');
