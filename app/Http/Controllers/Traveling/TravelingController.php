@@ -14,6 +14,8 @@ class TravelingController extends Controller
 
         $country = Country::find($id);
 
-        return view('traveling.about', compact('cities', 'country'));
+        $citiesCount = city::select()->where('country_id', $id)->count();
+
+        return view('traveling.about', compact('cities', 'country', 'citiesCount'));
     }
 }
