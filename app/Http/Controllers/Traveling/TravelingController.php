@@ -18,4 +18,13 @@ class TravelingController extends Controller
 
         return view('traveling.about', compact('cities', 'country', 'citiesCount'));
     }
+
+
+    public function makeReservations($id){
+
+        $city = city::find($id);
+
+        return view('traveling.reservation', compact('city'));
+
+    }
 }
