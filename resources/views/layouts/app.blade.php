@@ -92,7 +92,7 @@
                         <nav class="main-nav">
                             <!-- ***** Logo Start ***** -->
                             <a href="{{ url('/') }}" class="logo">
-                                <img src="assets/images/logo.png" alt="">
+                                <img src="{{asset('assets/images/logo.png')}}" alt="">
                             </a>
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
