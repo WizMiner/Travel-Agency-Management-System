@@ -22,9 +22,10 @@ class TravelingController extends Controller
 
     public function makeReservations($id){
 
-        $city = city::find($id);
+        $city = City::find($id);
 
         return view('traveling.reservation', compact('city'));
 
     }
+
 }

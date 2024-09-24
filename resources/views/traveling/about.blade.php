@@ -2,7 +2,8 @@
 
 @section('content')
     <!-- ***** Main Banner Area Start ***** -->
-    <div class="about-main-content" style="margin-top: -25px; background-image: url('{{ asset('assets/images/' . $country->image . '') }}')">
+    <div class="about-main-content"
+        style="margin-top: -25px; background-image: url('{{ asset('assets/images/' . $country->image . '') }}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -33,12 +34,12 @@
                         <div class="col-lg-12">
                             <div class="owl-cites-town owl-carousel">
                                 @foreach ($cities as $city)
-                                <div class="item">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/images/' .$city->image.'') }}" alt="">
-                                        <h4>{{ $city->name }}</h4>
+                                    <div class="item">
+                                        <div class="thumb">
+                                            <img src="{{ asset('assets/images/' . $city->image . '') }}" alt="">
+                                            <h4>{{ $city->name }}</h4>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -65,25 +66,26 @@
                 <div class="col-lg-12">
                     <div class="owl-weekly-offers owl-carousel">
                         @foreach ($cities as $city)
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{ asset('assets/images/' .$city->image.'') }}" alt="">
-                                <div class="text">
-                                    <h4>{{ $city->name }}<br><span></span></h4>
-                                    <h6>${{ $city->price }}<br><span>/person</span></h6>
-                                    <div class="line-dec"></div>
-                                    <ul>
-                                        <li>Deal Includes:</li>
-                                        <li><i class="fa fa-taxi"></i> {{ $city->num_days }} Days Trip > Hotel Included</li>
-                                        <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
-                                        <li><i class="fa fa-building"></i> Daily Places Visit</li>
-                                    </ul>
-                                    <div class="main-button">
-                                        <a href="{{ route('traveling.reservation', $city->id) }}">Make a Reservation</a>
+                            <div class="item">
+                                <div class="thumb">
+                                    <img src="{{ asset('assets/images/' . $city->image . '') }}" alt="">
+                                    <div class="text">
+                                        <h4>{{ $city->name }}<br><span></span></h4>
+                                        <h6>${{ $city->price }}<br><span>/person</span></h6>
+                                        <div class="line-dec"></div>
+                                        <ul>
+                                            <li>Deal Includes:</li>
+                                            <li><i class="fa fa-taxi"></i> {{ $city->num_days }} Days Trip > Hotel Included
+                                            </li>
+                                            <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
+                                            <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                                        </ul>
+                                        <div class="main-button">
+                                            <a href="{{ route('traveling.reservation', $city->id) }}">Make a Reservation</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
                     </div>
