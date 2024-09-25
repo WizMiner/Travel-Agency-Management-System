@@ -20,3 +20,12 @@ Route::get('traveling/about/{id}', [App\Http\Controllers\Traveling\TravelingCont
 Route::get('traveling/reservation/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'makeReservations'])->name('traveling.reservations');
 
 Route::get('traveling/reservation/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'makeReservations'])->name('traveling.reservation');
+Route::post('traveling/reservation/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'storeReservations'])->name('traveling.reservation.store');
+
+Route::get('traveling/reservation/success', function () {
+    return redirect()->route('home')->with('success', 'Reservation created successfully!');
+  });
+// Success Route (Optional - Redirect to a success view instead)
+Route::get('traveling/reservation/success', function () {
+    return redirect()->route('home')->with('success', 'Reservation created successfully!');
+});
