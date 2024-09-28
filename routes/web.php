@@ -29,3 +29,4 @@ Route::post('traveling/reservation/{id}', [App\Http\Controllers\Traveling\Travel
 // });
 
 Route::get('traveling/pay', [App\Http\Controllers\Traveling\TravelingController::class, 'payWithPaypal'])->name('traveling.pay');
+Route::get('traveling/success', [App\Http\Controllers\Traveling\TravelingController::class, 'successPayed'])->name('traveling.success');

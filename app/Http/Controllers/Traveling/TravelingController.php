@@ -50,7 +50,9 @@ class TravelingController extends Controller
         if (!$city) {
             return back()->withErrors(['city' => 'Invalid city ID.']);
         }
-        $totalPrice = $city->price * $request->num_guests;
+        // $totalPrice = $city->price * $request->num_guests;
+        $totalPrice = (int)$city->price * $request->num_guests;
+
 
         $reservation = Reservation::create([
             'name' => $request->name,
@@ -66,7 +68,7 @@ class TravelingController extends Controller
             Session::put('price', $totalPrice);
             // return view('traveling.success');
 
-            return view('traveling.pay');
+            return view('traveling.pay', compact('totalPrice'));
         } else {
             return back()->withErrors(['reservation' => 'An error occurred while creating your reservation.']);
         }
@@ -75,5 +77,11 @@ class TravelingController extends Controller
     public function payWithPaypal(){
 
         return view('traveling.pay');
+    }
+
+    public function successPayed(){
+
+        Session::forget('price');
+        return view('traveling.success');
     }
 }
