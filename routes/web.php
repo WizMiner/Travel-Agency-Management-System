@@ -22,10 +22,10 @@ Route::get('traveling/reservation/{id}', [App\Http\Controllers\Traveling\Traveli
 Route::get('traveling/reservation/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'makeReservations'])->name('traveling.reservation');
 Route::post('traveling/reservation/{id}', [App\Http\Controllers\Traveling\TravelingController::class, 'storeReservations'])->name('traveling.reservation.store');
 
-Route::get('traveling/reservation/success', function () {
-    return redirect()->route('home')->with('success', 'Reservation created successfully!');
-  });
-// Success Route (Optional - Redirect to a success view instead)
-Route::get('traveling/reservation/success', function () {
-    return redirect()->route('home')->with('success', 'Reservation created successfully!');
-});
+
+// // Success Route (Optional - Redirect to a success view instead)
+// Route::get('traveling/reservation/success', function () {
+//     return redirect()->route('home')->with('success', 'Reservation created successfully!');
+// });
+
+Route::get('traveling/pay', [App\Http\Controllers\Traveling\TravelingController::class, 'payWithPaypal'])->name('traveling.pay');
