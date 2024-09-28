@@ -27,6 +27,10 @@ Route::post('traveling/reservation/{id}', [App\Http\Controllers\Traveling\Travel
 // Route::get('traveling/reservation/success', function () {
 //     return redirect()->route('home')->with('success', 'Reservation created successfully!');
 // });
-
-Route::get('traveling/pay', [App\Http\Controllers\Traveling\TravelingController::class, 'payWithPaypal'])->name('traveling.pay')->middleware('PaymentMiddleware');
+//payment
+Route::get('traveling/pay', [App\Http\Controllers\Traveling\TravelingController::class, 'payWithPaypal'])->name('traveling.pay');
 Route::get('traveling/success', [App\Http\Controllers\Traveling\TravelingController::class, 'successPayed'])->name('traveling.success');
+
+
+//deals page
+Route::get('traveling/deals', [App\Http\Controllers\Traveling\TravelingController::class, 'deals'])->name('traveling.deals');
