@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Session;
+
 
 class CheckForPrice
 {
@@ -15,6 +17,11 @@ class CheckForPrice
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if($request->url('traveling/checkout') OR  $request->url('traveling/success')) {
+            if(Session::get('price') == 0) {
+                return abort('403');
+            }
+        }
         return $next($request);
     }
 }
